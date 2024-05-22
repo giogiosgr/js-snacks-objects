@@ -15,7 +15,9 @@ const peopleInfo = [];
 //ciclo for per iterare per tutto l'array degli oggetti di tipo persona
 for (let i = 0; i < people.length; i++) {
     //creazione oggetto di appoggio, inizializzato con l'oggetto di tipo persona corrente dell'array
-    const temp = people[i];
+    /*ATTENZIONE: ho usato un metodo per la creazione di un nuovo oggetto, non ho usato l'operatore = per fare una reference copy,
+    Allo scopo di preservare intatti gli oggetti originali*/
+    const temp = Object.assign({}, people[i]);
     //condizione in cui valutiamo se l'attributo età dell'oggetto di tipo persona è idonea o meno per avere la patente
     if (temp.age >= 18) {
         //creiamo l'attributo info con stringa che indica che la persona può guidare
@@ -30,3 +32,5 @@ for (let i = 0; i < people.length; i++) {
 
 //stampa del nuovo array
 console.log(peopleInfo);
+
+console.log(people)
