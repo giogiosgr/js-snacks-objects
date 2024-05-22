@@ -33,4 +33,5 @@ for (let i = 0; i < people.length; i++) {
 //stampa del nuovo array
 console.log(peopleInfo);
 
+//stampa dell'array originale (invariato)
 console.log(people)
