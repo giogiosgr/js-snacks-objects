@@ -37,9 +37,10 @@ for (let i = 0; i < people.length; i++) {
 //operando su un nuovo oggetto all'interno della funzione (e usando il thernary operator per il confronto)
 const peopleInfo = people.map(function (person) {
     const newPerson = { ...person };
-    return newPerson.age >= 18 ?
+    newPerson.age >= 18 ?
         (newPerson.info = `${newPerson.firstName} ${newPerson.lastName} può guidare`) :
         (newPerson.info = `${newPerson.firstName} ${newPerson.lastName} NON può guidare`);
+    return newPerson;
 }
 )
 
