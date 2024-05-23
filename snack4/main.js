@@ -9,6 +9,8 @@ const people =
         { firstName: 'Ximenes', lastName: 'Uzeda', age: 200 }
     ]
 
+/* LOGICA ORIGINALE
+
 //inizializzazione nuovo array, come vuoto, che conterrà gli oggetti con i dati delle persone, più la info aggiuntiva
 const peopleInfo = [];
 
@@ -28,9 +30,21 @@ for (let i = 0; i < people.length; i++) {
     //push dell'oggetto di appoggio nell'array dedicato a contenere tutti gli oggetti con le info
     peopleInfo.push(temp);
 }
+*/
+
+/*Logica utilizzando il metodo map*/
+//Il nuovo array è creato assegnando il valore restituito da map sull'array originale, 
+//operando su un nuovo oggetto all'interno della funzione (e usando il thernary operator per il confronto)
+const peopleInfo = people.map(function (person) {
+    const newPerson = { ...person };
+    return newPerson.age >= 18 ?
+        (newPerson.info = `${newPerson.firstName} ${newPerson.lastName} può guidare`) :
+        (newPerson.info = `${newPerson.firstName} ${newPerson.lastName} NON può guidare`);
+}
+)
 
 //stampa del nuovo array
 console.log(peopleInfo);
 
-//stampa dell'array originale (invariato)
-console.log(people)
+//stampa dell'array originale, invariato
+console.log(people);
